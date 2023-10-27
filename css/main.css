@@ -1,15 +1,32 @@
 body{
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-    background: white;
+    background: url(/img/browserimg.jpg);
 }
 
 #board {
     width: 600px;
     height: 600px;
-    background-color: brown;
 
     margin: auto;
     display: flex;
     flex-wrap: wrap;
+
+    background-color: brown;
+    border: 4px solid black;
+    border-radius: 5px;
 }
+
+#board div{
+    width: 120px;
+    height: 120px;
+    background-image: url("../img/pokeball.png");
+    background-size: cover;
+}
+
+
+#board div img {
+    width: 100%;
+    height: 100% ;
+}
+
