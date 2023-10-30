@@ -7,7 +7,14 @@ function increasePoints(amount) {
 
 function decreasePoints(amount) {
   points -= amount; // Increase points after clicking
+  if (points < 0) {
+    points = 0; // solved my problem with negative points
+  }
+
   updatePointsDisplay(); // after click, update display
+  if (points === 0) {
+    game0ver();
+  }
 }
 
 function updatePointsDisplay() {
@@ -16,6 +23,10 @@ function updatePointsDisplay() {
   if (pointsDisplay) {
     pointsDisplay.textContent = `Points: ${points}`;
   }
+}
+
+function game0ver(){
+  location.href = "./gameover.html";
 }
 
 class randomSquare {
@@ -108,12 +119,9 @@ function CreateGameGrid() {
     const newPikachu = new Pikachu();
   }, 4000);
 
-  setInterval(() =>{
-    const newGengar = new Gengar()
-  }, 4000)
+  setInterval(() => {
+    const newGengar = new Gengar();
+  }, 4000);
 }
-
-
-
 
 CreateGameGrid();
