@@ -58,7 +58,7 @@ class Pikachu {
         if (imgElementToRemove) {
           imgElementToRemove.remove();
         }
-      }, 3500);
+      }, 1500);
 
       // Add a click event to the Pikachu image
       pikachu.addEventListener("click", () => {
@@ -96,18 +96,19 @@ class Gengar {
         if (imgElementToRemove) {
           imgElementToRemove.remove();
         }
-      }, 3500);
+      }, 1500);     // Go down in this value to make it desappear faster
 
       // Add a click event to the Gengar image
       gengar.addEventListener("click", () => {
-        if (gengar.isClickable) {     // this solved me the problem of 1 img giving points more than once
+        if (gengar.isClickable) {
+          // this solved me the problem of 1 img giving points more than once
           decreasePoints(10);
         }
         // Remove the clicked Gengar
         if (imgElement) {
           imgElement.remove();
         }
-        gengar.isClickable = false;    // this solved me the problem of 1 img giving points more than once
+        gengar.isClickable = false; // this solved me the problem of 1 img giving points more than once
       });
     }
   }
@@ -123,11 +124,11 @@ function CreateGameGrid() {
 
   setInterval(() => {
     const newPikachu = new Pikachu();
-  }, 4000);
+  }, 1600);        // Go up in this value to change appearance time
 
   setInterval(() => {
     const newGengar = new Gengar();
-  }, 4000);
+  }, 3000);      // Go up in this value to change appearance time
 }
 
 CreateGameGrid();
