@@ -1,65 +1,8 @@
-function CreateGameGrid() {
-  // Prep for the grid squares
-  for (let i = 0; i < 25; i++) {
-    let cell = document.createElement("div"); // creates the 25 cells
-    cell.id = i.toString();
-    document.getElementById("board").appendChild(cell);
-  }
+let points = 0;
 
-  setInterval(() => {
-    const newDiglett = new Diglett();
-  }, 4000);
-}
-
-CreateGameGrid();
-
-class randomSquare {
-  constructor() {
-    this.num = Math.floor(Math.random() * 25); //  getting the random number of squares generated
-  }
-
-  square() {
-    return this.num.toString();
-  }
-}
-
-class Diglett {
-  constructor() {
-    let currGrid;
-    let diglett = document.createElement("img");
-    diglett.src = "img/diglett.png";
-
-    let num = new randomSquare().square();
-    currGrid = document.getElementById(num);
-
-    const imgElement = currGrid.querySelector("img");
-    if (!imgElement) {
-      currGrid.appendChild(diglett);
-
-      setTimeout(() => {
-        const imgElementToRemove = currGrid.querySelector("img");
-        if (imgElementToRemove) {
-          imgElementToRemove.remove();
-        }
-      }, 3500);
-
-      // Add a click event to the Diglett image
-      diglett.addEventListener("click", () => {
-        // Implement logic to increase the user's points
-        increasePoints(10);
-
-        // Remove the clicked Diglett
-        if (imgElement) {
-          imgElement.remove();
-        }
-      });
-    }
-  }
-}
-
-function increasePoints(amount){
-  points+= amount
-  updatePointsDisplay();
+function increasePoints(amount) {
+  points += amount; // Increase points after clicking
+  updatePointsDisplay(); // after click, update display
 }
 
 function updatePointsDisplay() {
@@ -70,8 +13,95 @@ function updatePointsDisplay() {
   }
 }
 
-class BadDig {
+class randomSquare {
   constructor() {
-    this.setbadDig = document.createElement("imgBD");
+    this.num = Math.floor(Math.random() * 25); // getting the random number of squares generated
+  }
+
+  square() {
+    return this.num.toString();
   }
 }
+
+class Pikachu {
+  constructor() {
+    let currGrid;
+    let pikachu = document.createElement("img");
+    pikachu.src = "img/pikachu.png";
+
+    let num = new randomSquare().square();
+    currGrid = document.getElementById(num);
+
+    const imgElement = currGrid.querySelector("img");
+    if (!imgElement) {
+      currGrid.appendChild(pikachu);
+
+      setTimeout(() => {
+        const imgElementToRemove = currGrid.querySelector("img");
+        if (imgElementToRemove) {
+          imgElementToRemove.remove();
+        }
+      }, 3500);
+
+      // Add a click event to the Pikachu image
+      pikachu.addEventListener("click", () => {
+        // Implement logic to increase the user's points
+        increasePoints(10);
+
+        // Remove the clicked Pikachu
+        if (imgElement) {
+          imgElement.remove();
+        }
+      });
+    }
+  }
+}
+
+class Gengar {
+  constructor() {
+    let currGrid;
+    let gengar = document.createElement("img");
+    gengar.src = "img/gengar.png";
+
+    let num = new randomSquare().square();
+    currGrid = document.getElementById(num);
+
+    const imgElement = currGrid.querySelector("img");
+    if (!imgElement) {
+      currGrid.appendChild(gengar);
+
+      setTimeout(() => {
+        const imgElementToRemove = currGrid.querySelector("img");
+        if (imgElementToRemove) {
+          imgElementToRemove.remove();
+        }
+      }, 3500);
+
+      // Add a click event to the Gengar image
+      gengar.addEventListener("click", () => {
+        // Implement logic to decrease the user's points
+        decreasePoints(10);
+
+        // Remove the clicked Gengar
+        if (imgElement) {
+          imgElement.remove();
+        }
+      });
+    }
+  }
+}
+
+function CreateGameGrid() {
+  // Prep for the grid squares
+  for (let i = 0; i < 25; i++) {
+    let cell = document.createElement("div"); // creates the 25 cells
+    cell.id = i.toString();
+    document.getElementById("board").appendChild(cell);
+  }
+
+  setInterval(() => {
+    const newPikachu = new Pikachu();
+  }, 4000);
+}
+
+CreateGameGrid();
