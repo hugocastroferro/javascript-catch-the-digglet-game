@@ -8,7 +8,7 @@ function CreateGameGrid() {
 
   setInterval(() => {
     const newDiglett = new Diglett();
-  }, 1000);
+  }, 4000);
 }
 
 CreateGameGrid();
@@ -41,8 +41,32 @@ class Diglett {
         if (imgElementToRemove) {
           imgElementToRemove.remove();
         }
-      }, 500);
+      }, 3500);
+
+      // Add a click event to the Diglett image
+      diglett.addEventListener("click", () => {
+        // Implement logic to increase the user's points
+        increasePoints(10);
+
+        // Remove the clicked Diglett
+        if (imgElement) {
+          imgElement.remove();
+        }
+      });
     }
+  }
+}
+
+function increasePoints(amount){
+  points+= amount
+  updatePointsDisplay();
+}
+
+function updatePointsDisplay() {
+  // Update the points display on the game
+  const pointsDisplay = document.getElementById("score-display");
+  if (pointsDisplay) {
+    pointsDisplay.textContent = `Points: ${points}`;
   }
 }
 
