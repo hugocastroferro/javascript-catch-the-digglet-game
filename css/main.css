@@ -14,7 +14,7 @@ body{
     flex-wrap: wrap;
 
     background-color: grey;
-    /*background: url(../img/boardimg.jpg); */
+    background: url(../img/boardimg.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

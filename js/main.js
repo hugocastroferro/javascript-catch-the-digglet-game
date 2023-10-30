@@ -1,5 +1,14 @@
 let points = 0;
 
+let appearanceTimePikachu = 1600;
+let appearanceTimeGengar = 1600;
+let appearanceTimeGrimer = 1600;
+let appearanceTimePikadont = 1000;
+
+let timer = 10;
+let timerInterval = setInterval(decreaseTimer, 1000);
+let level = 1;
+
 function increasePoints(amount) {
   points += amount; // Increase points after clicking
   updatePointsDisplay(); // after click, update display
@@ -12,9 +21,6 @@ function decreasePoints(amount) {
   }
 
   updatePointsDisplay(); // after click, update display
-  if (points === 0) {
-    game0ver();
-  }
 }
 
 function updatePointsDisplay() {
@@ -22,6 +28,9 @@ function updatePointsDisplay() {
   const pointsDisplay = document.getElementById("score-display");
   if (pointsDisplay) {
     pointsDisplay.textContent = `Points: ${points}`;
+  }
+  if (points === 0) {
+    game0ver();
   }
 }
 
@@ -43,7 +52,7 @@ class Pikachu {
   constructor() {
     let currGrid;
     let pikachu = document.createElement("img");
-    pikachu.src = "img/pikachu.png";
+    pikachu.src = "img/Pikachu.png";
     pikachu.isClickable = true; // solved the points problem
 
     let num = new randomSquare().square();
@@ -96,7 +105,7 @@ class Gengar {
         if (imgElementToRemove) {
           imgElementToRemove.remove();
         }
-      }, 1500);     // Go down in this value to make it desappear faster
+      }, 1500); // Go down in this value to make it desappear faster
 
       // Add a click event to the Gengar image
       gengar.addEventListener("click", () => {
@@ -114,6 +123,80 @@ class Gengar {
   }
 }
 
+class Grimer {
+  constructor() {
+    let currGrid;
+    let grimer = document.createElement("img");
+    grimer.src = "img/grimer.png";
+    grimer.isClickable = true; // solved the points problem
+
+    let num = new randomSquare().square();
+    currGrid = document.getElementById(num);
+
+    const imgElement = currGrid.querySelector("img");
+    if (!imgElement) {
+      currGrid.appendChild(grimer);
+
+      setTimeout(() => {
+        const imgElementToRemove = currGrid.querySelector("img");
+        if (imgElementToRemove) {
+          imgElementToRemove.remove();
+        }
+      }, 1500); // Go down in this value to make it desappear faster
+
+      // Add a click event to the grimer image
+      grimer.addEventListener("click", () => {
+        if (grimer.isClickable) {
+          // this solved me the problem of 1 img giving points more than once
+          decreasePoints(10);
+        }
+        // Remove the clicked grimer
+        if (imgElement) {
+          imgElement.remove();
+        }
+        grimer.isClickable = false; // this solved me the problem of 1 img giving points more than once
+      });
+    }
+  }
+}
+
+class Pikadont {
+  constructor() {
+    let currGrid;
+    let pikadont = document.createElement("img");
+    pikadont.src = "img/Pikadont.png";
+    pikadont.isClickable = true; // solved the points problem
+
+    let num = new randomSquare().square();
+    currGrid = document.getElementById(num);
+
+    const imgElement = currGrid.querySelector("img");
+    if (!imgElement) {
+      currGrid.appendChild(pikadont);
+
+      setTimeout(() => {
+        const imgElementToRemove = currGrid.querySelector("img");
+        if (imgElementToRemove) {
+          imgElementToRemove.remove();
+        }
+      }, 1000); // Go down in this value to make it desappear faster
+
+      // click event
+      pikadont.addEventListener("click", () => {
+        if (pikadont.isClickable) {
+          // this solved me the problem of 1 img giving points more than once
+          decreasePoints(100);
+        }
+        // Remove the clicked img
+        if (imgElement) {
+          imgElement.remove();
+        }
+        pikadont.isClickable = false; // this solved me the problem of 1 img giving points more than once
+      });
+    }
+  }
+}
+
 function CreateGameGrid() {
   // Prep for the grid squares
   for (let i = 0; i < 25; i++) {
@@ -122,13 +205,75 @@ function CreateGameGrid() {
     document.getElementById("board").appendChild(cell);
   }
 
+  // Create instances of the new classes
   setInterval(() => {
     const newPikachu = new Pikachu();
-  }, 1600);        // Go up in this value to change appearance time
+  }, appearanceTimePikachu);
 
   setInterval(() => {
     const newGengar = new Gengar();
-  }, 3000);      // Go up in this value to change appearance time
+  }, appearanceTimeGengar);
+
+  setInterval(() => {
+    const newGrimer = new Grimer();
+  }, appearanceTimeGrimer);
+
+  if (level >= 2) {
+    setInterval(() => {
+      const newPikadont = new Pikadont();
+    }, appearanceTimePikadont);
+  }
 }
 
 CreateGameGrid();
+
+function updateTimerDisplay() {
+  const timerDisplay = document.getElementById("timer-display");
+  if (timerDisplay) {
+    timerDisplay.textContent = `Timer: ${timer}`;
+  }
+}
+
+function updateLevelDisplay() {
+  const levelDisplay = document.getElementById("level-display");
+  if (levelDisplay) {
+    levelDisplay.textContent = `Level: ${level}`;
+  }
+}
+
+// decreasing timer value and level up
+function decreaseTimer() {
+  timer--;
+  updateTimerDisplay();
+  if (timer <= 0) {
+    level++;
+    updateLevelDisplay(); // Update the level display when level increments
+    timer = 10;
+    changeAppearanceTime();
+  }
+}
+
+// Changing the appearance time of imgs
+function changeAppearanceTime() {
+  if (appearanceTimePikachu > 300) {
+    appearanceTimePikachu -= 200;
+  }
+
+  if (appearanceTimeGengar > 300) {
+    appearanceTimeGengar -= 200;
+  }
+
+  if (appearanceTimeGrimer > 300) {
+    appearanceTimeGrimer -= 200;
+  }
+
+  if (appearanceTimePikadont > 300) {
+    appearanceTimePikadont -= 200;
+  }
+
+  function levelUp() {
+    level++;
+    changeAppearanceTime();
+    updateLevelDisplay();
+  }
+}
