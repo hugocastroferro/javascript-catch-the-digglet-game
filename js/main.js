@@ -1,4 +1,4 @@
-let points = 10;
+let points = 0;
 
 function increasePoints(amount) {
   points += amount; // Increase points after clicking
@@ -25,7 +25,7 @@ function updatePointsDisplay() {
   }
 }
 
-function game0ver(){
+function game0ver() {
   location.href = "./gameover.html";
 }
 
@@ -44,6 +44,7 @@ class Pikachu {
     let currGrid;
     let pikachu = document.createElement("img");
     pikachu.src = "img/pikachu.png";
+    pikachu.isClickable = true; // solved the points problem
 
     let num = new randomSquare().square();
     currGrid = document.getElementById(num);
@@ -61,13 +62,16 @@ class Pikachu {
 
       // Add a click event to the Pikachu image
       pikachu.addEventListener("click", () => {
-        // Implement logic to increase the user's points
-        increasePoints(10);
-
+        if (pikachu.isClickable) {
+          // this solved me the problem of 1 img giving points more than once
+          increasePoints(10);
+        }
         // Remove the clicked Pikachu
         if (imgElement) {
           imgElement.remove();
         }
+
+        pikachu.isClickable = false;
       });
     }
   }
@@ -78,6 +82,7 @@ class Gengar {
     let currGrid;
     let gengar = document.createElement("img");
     gengar.src = "img/gengar.png";
+    gengar.isClickable = true; // solved the points problem
 
     let num = new randomSquare().square();
     currGrid = document.getElementById(num);
@@ -95,13 +100,14 @@ class Gengar {
 
       // Add a click event to the Gengar image
       gengar.addEventListener("click", () => {
-        // Implement logic to decrease the user's points
-        decreasePoints(10);
-
+        if (gengar.isClickable) {     // this solved me the problem of 1 img giving points more than once
+          decreasePoints(10);
+        }
         // Remove the clicked Gengar
         if (imgElement) {
           imgElement.remove();
         }
+        gengar.isClickable = false;    // this solved me the problem of 1 img giving points more than once
       });
     }
   }
