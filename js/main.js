@@ -1,7 +1,12 @@
-let points = 0;
+let points = 10;
 
 function increasePoints(amount) {
   points += amount; // Increase points after clicking
+  updatePointsDisplay(); // after click, update display
+}
+
+function decreasePoints(amount) {
+  points -= amount; // Increase points after clicking
   updatePointsDisplay(); // after click, update display
 }
 
@@ -102,6 +107,13 @@ function CreateGameGrid() {
   setInterval(() => {
     const newPikachu = new Pikachu();
   }, 4000);
+
+  setInterval(() =>{
+    const newGengar = new Gengar()
+  }, 4000)
 }
+
+
+
 
 CreateGameGrid();
