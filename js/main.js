@@ -222,13 +222,6 @@ function CreateGameGrid() {
 
 CreateGameGrid();
 
-// Create instances of the new classes with level conditions, solved the problem of not appearing normally
-function levelUpConditionClass() {
-  setInterval(() => {
-    const newPikadont = new Pikadont();
-  }, appearanceTimePikadont);
-}
-
 function updateTimerDisplay() {
   const timerDisplay = document.getElementById("timer-display");
   if (timerDisplay) {
@@ -255,22 +248,22 @@ function decreaseTimer() {
   }
 }
 
-// Changing the appearance time of imgs
+// Changing the appearance time of imgs to make the game faster
 function changeAppearanceTime() {
   if (appearanceTimePikachu > 300) {
-    appearanceTimePikachu -= 200;
+    appearanceTimePikachu -= 300;
   }
 
   if (appearanceTimeGengar > 300) {
-    appearanceTimeGengar -= 200;
+    appearanceTimeGengar -= 300;
   }
 
   if (appearanceTimeGrimer > 300) {
-    appearanceTimeGrimer -= 200;
+    appearanceTimeGrimer -= 300;
   }
 
   if (appearanceTimePikadont > 300) {
-    appearanceTimePikadont -= 200;
+    appearanceTimePikadont -= 300;
   }
 }
 
@@ -279,8 +272,10 @@ function levelUp() {
   changeAppearanceTime();
   updateLevelDisplay();
 
-  if (level >= 2 && !levelUpCondition) {   // solved my problem of on each level up the code executed the condition many times and duplicated the imgs
-    levelUpConditionClass();
-    levelUpCondition = true;
+  // solved my problem of the classes are working if they have a lvl condition
+  if (level === 2) {
+    const newPikadont = new Pikadont();
   }
 }
+
+
