@@ -3,11 +3,12 @@ let points = 0;
 let appearanceTimePikachu = 1600;
 let appearanceTimeGengar = 1600;
 let appearanceTimeGrimer = 1600;
-let appearanceTimePikadont = 1000;
+let appearanceTimePikadont = 1600;
 
 let timer = 10;
 let timerInterval = setInterval(decreaseTimer, 1000);
 let level = 1;
+let levelUpCondition = false;
 
 function increasePoints(amount) {
   points += amount; // Increase points after clicking
@@ -179,13 +180,13 @@ class Pikadont {
         if (imgElementToRemove) {
           imgElementToRemove.remove();
         }
-      }, 1000); // Go down in this value to make it desappear faster
+      }, 1500); // Go down in this value to make it desappear faster
 
       // click event
       pikadont.addEventListener("click", () => {
         if (pikadont.isClickable) {
           // this solved me the problem of 1 img giving points more than once
-          decreasePoints(100);
+          decreasePoints(40);
         }
         // Remove the clicked img
         if (imgElement) {
@@ -217,15 +218,16 @@ function CreateGameGrid() {
   setInterval(() => {
     const newGrimer = new Grimer();
   }, appearanceTimeGrimer);
-
-  if (level >= 2) {
-    setInterval(() => {
-      const newPikadont = new Pikadont();
-    }, appearanceTimePikadont);
-  }
 }
 
 CreateGameGrid();
+
+// Create instances of the new classes with level conditions, solved the problem of not appearing normally
+function levelUpConditionClass() {
+  setInterval(() => {
+    const newPikadont = new Pikadont();
+  }, appearanceTimePikadont);
+}
 
 function updateTimerDisplay() {
   const timerDisplay = document.getElementById("timer-display");
@@ -246,7 +248,7 @@ function decreaseTimer() {
   timer--;
   updateTimerDisplay();
   if (timer <= 0) {
-    level++;
+    levelUp();
     updateLevelDisplay(); // Update the level display when level increments
     timer = 10;
     changeAppearanceTime();
@@ -270,10 +272,15 @@ function changeAppearanceTime() {
   if (appearanceTimePikadont > 300) {
     appearanceTimePikadont -= 200;
   }
+}
 
-  function levelUp() {
-    level++;
-    changeAppearanceTime();
-    updateLevelDisplay();
+function levelUp() {
+  level++;
+  changeAppearanceTime();
+  updateLevelDisplay();
+
+  if (level >= 2 && !levelUpCondition) {   // solved my problem of on each level up the code executed the condition many times and duplicated the imgs
+    levelUpConditionClass();
+    levelUpCondition = true;
   }
 }
