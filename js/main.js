@@ -1,9 +1,14 @@
 let points = 0;
 
-let appearanceTimePikachu = 1600;
-let appearanceTimeGengar = 1600;
-let appearanceTimeGrimer = 1600;
-let appearanceTimePikadont = 1600;
+let appearanceTimePikachu = 500;
+let appearanceTimeGengar = 1000;
+let appearanceTimeGrimer = 1000;
+let appearanceTimePikadont = 1000;
+let appearanceTimePsy = 1000;
+let appearanceTimeSnorlax = 1000;
+let appearanceTimeBulb = 1000;
+let appearanceTimeAsh = 1000;
+let appearanceTimeJames = 5000;
 
 let timer = 10;
 let timerInterval = setInterval(decreaseTimer, 1000);
@@ -49,155 +54,6 @@ class randomSquare {
   }
 }
 
-class Pikachu {
-  constructor() {
-    let currGrid;
-    let pikachu = document.createElement("img");
-    pikachu.src = "img/Pikachu.png";
-    pikachu.isClickable = true; // solved the points problem
-
-    let num = new randomSquare().square();
-    currGrid = document.getElementById(num);
-
-    const imgElement = currGrid.querySelector("img");
-    if (!imgElement) {
-      currGrid.appendChild(pikachu);
-
-      setTimeout(() => {
-        const imgElementToRemove = currGrid.querySelector("img");
-        if (imgElementToRemove) {
-          imgElementToRemove.remove();
-        }
-      }, 1500);
-
-      // Add a click event to the Pikachu image
-      pikachu.addEventListener("click", () => {
-        if (pikachu.isClickable) {
-          // this solved me the problem of 1 img giving points more than once
-          increasePoints(10);
-        }
-        // Remove the clicked Pikachu
-        if (imgElement) {
-          imgElement.remove();
-        }
-
-        pikachu.isClickable = false;
-      });
-    }
-  }
-}
-
-class Gengar {
-  constructor() {
-    let currGrid;
-    let gengar = document.createElement("img");
-    gengar.src = "img/gengar.png";
-    gengar.isClickable = true; // solved the points problem
-
-    let num = new randomSquare().square();
-    currGrid = document.getElementById(num);
-
-    const imgElement = currGrid.querySelector("img");
-    if (!imgElement) {
-      currGrid.appendChild(gengar);
-
-      setTimeout(() => {
-        const imgElementToRemove = currGrid.querySelector("img");
-        if (imgElementToRemove) {
-          imgElementToRemove.remove();
-        }
-      }, 1500); // Go down in this value to make it desappear faster
-
-      // Add a click event to the Gengar image
-      gengar.addEventListener("click", () => {
-        if (gengar.isClickable) {
-          // this solved me the problem of 1 img giving points more than once
-          decreasePoints(10);
-        }
-        // Remove the clicked Gengar
-        if (imgElement) {
-          imgElement.remove();
-        }
-        gengar.isClickable = false; // this solved me the problem of 1 img giving points more than once
-      });
-    }
-  }
-}
-
-class Grimer {
-  constructor() {
-    let currGrid;
-    let grimer = document.createElement("img");
-    grimer.src = "img/grimer.png";
-    grimer.isClickable = true; // solved the points problem
-
-    let num = new randomSquare().square();
-    currGrid = document.getElementById(num);
-
-    const imgElement = currGrid.querySelector("img");
-    if (!imgElement) {
-      currGrid.appendChild(grimer);
-
-      setTimeout(() => {
-        const imgElementToRemove = currGrid.querySelector("img");
-        if (imgElementToRemove) {
-          imgElementToRemove.remove();
-        }
-      }, 1500); // Go down in this value to make it desappear faster
-
-      // Add a click event to the grimer image
-      grimer.addEventListener("click", () => {
-        if (grimer.isClickable) {
-          // this solved me the problem of 1 img giving points more than once
-          decreasePoints(10);
-        }
-        // Remove the clicked grimer
-        if (imgElement) {
-          imgElement.remove();
-        }
-        grimer.isClickable = false; // this solved me the problem of 1 img giving points more than once
-      });
-    }
-  }
-}
-
-class Pikadont {
-  constructor() {
-    let currGrid;
-    let pikadont = document.createElement("img");
-    pikadont.src = "img/Pikadont.png";
-    pikadont.isClickable = true; // solved the points problem
-
-    let num = new randomSquare().square();
-    currGrid = document.getElementById(num);
-
-    const imgElement = currGrid.querySelector("img");
-    if (!imgElement) {
-      currGrid.appendChild(pikadont);
-
-      setTimeout(() => {
-        const imgElementToRemove = currGrid.querySelector("img");
-        if (imgElementToRemove) {
-          imgElementToRemove.remove();
-        }
-      }, 1500); // Go down in this value to make it desappear faster
-
-      // click event
-      pikadont.addEventListener("click", () => {
-        if (pikadont.isClickable) {
-          // this solved me the problem of 1 img giving points more than once
-          decreasePoints(40);
-        }
-        // Remove the clicked img
-        if (imgElement) {
-          imgElement.remove();
-        }
-        pikadont.isClickable = false; // this solved me the problem of 1 img giving points more than once
-      });
-    }
-  }
-}
-
 function CreateGameGrid() {
   // Prep for the grid squares
   for (let i = 0; i < 25; i++) {
@@ -218,6 +74,22 @@ function CreateGameGrid() {
   setInterval(() => {
     const newGrimer = new Grimer();
   }, appearanceTimeGrimer);
+
+  setInterval(() => {
+    const newPsy = new Psy();
+  }, appearanceTimePsy);
+ 
+  setInterval(() => {
+    const newSnorlax = new Snorlax();
+  }, appearanceTimeSnorlax);
+
+  setInterval(() => {
+    const newBulb = new Bulb();
+  }, appearanceTimeBulb);
+
+  setInterval(() => {
+    const newJames = new James();
+  }, appearanceTimeJames);
 }
 
 CreateGameGrid();
@@ -250,7 +122,7 @@ function decreaseTimer() {
 
 // Changing the appearance time of imgs to make the game faster
 function changeAppearanceTime() {
-  if (appearanceTimePikachu > 300) {
+  if (appearanceTimePikachu > 100) {
     appearanceTimePikachu -= 300;
   }
 
@@ -262,8 +134,24 @@ function changeAppearanceTime() {
     appearanceTimeGrimer -= 300;
   }
 
+  if (appearanceTimePsy > 300) {
+    appearanceTimePsy -= 300;
+  }
+
   if (appearanceTimePikadont > 300) {
     appearanceTimePikadont -= 300;
+  }
+
+  if (appearanceTimeBulb > 300) {
+    appearanceTimeBulb -= 300;
+  }
+
+  if (appearanceTimeAsh > 300) {
+    appearanceTimeAsh -= 300;
+  }
+
+  if (appearanceTimeJames > 300) {
+    appearanceTimeJames -= 300;
   }
 }
 
@@ -273,9 +161,13 @@ function levelUp() {
   updateLevelDisplay();
 
   // solved my problem of the classes are working if they have a lvl condition
-  if (level === 2) {
+  if (level >= 2) {
+    console.log(level)
     const newPikadont = new Pikadont();
+  } 
+
+if  (level === 5){
+    const newAsh = new Ash();
   }
 }
-
 
