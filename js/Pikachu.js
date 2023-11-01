@@ -17,7 +17,7 @@ class Pikachu {
           if (imgElementToRemove) {
             imgElementToRemove.remove();
           }
-        }, 700);
+        }, 1000);
   
         // Add a click event to the Pikachu image
         pikachu.addEventListener("click", () => {

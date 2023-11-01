@@ -17,7 +17,7 @@ class Ash {
           if (imgElementToRemove) {
             imgElementToRemove.remove();
           }
-        }, 1500); // Go down in this value to make it desappear faster
+        }, 1000); // Go down in this value to make it desappear faster
   
         // Add a click event to the Gengar image
         ash.addEventListener("click", () => {

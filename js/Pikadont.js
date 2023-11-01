@@ -17,7 +17,7 @@ class Pikadont {
           if (imgElementToRemove) {
             imgElementToRemove.remove();
           }
-        }, 900); // Go down in this value to make it desappear faster
+        }, 1000); // Go down in this value to make it desappear faster
   
         // click event
         pikadont.addEventListener("click", () => {

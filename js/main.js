@@ -1,14 +1,14 @@
 let points = 0;
 
-let appearanceTimePikachu = 800;
+let appearanceTimePikachu = 1100;
 let appearanceTimeGengar = 1000;
 let appearanceTimeGrimer = 1000;
-let appearanceTimePikadont = 1000;
+let appearanceTimePikadont = 1500;
 let appearanceTimePsy = 1000;
 let appearanceTimeSnorlax = 1000;
 let appearanceTimeBulb = 1000;
-let appearanceTimeAsh = 1000;
-let appearanceTimeJames = 5000;
+let appearanceTimeAsh = 2500;
+let appearanceTimeJames = 1100;
 
 let timer = 10;
 let timerInterval = setInterval(decreaseTimer, 1000);
@@ -90,6 +90,14 @@ function CreateGameGrid() {
   setInterval(() => {
     const newJames = new James();
   }, appearanceTimeJames);
+
+  setInterval(() => {
+    const newPikadont = new Pikadont();
+  }, appearanceTimePikadont);
+
+  setInterval(() => {
+    const newAsh = new Ash();
+  }, appearanceTimeAsh);
 }
 
 CreateGameGrid();
@@ -159,8 +167,9 @@ function levelUp() {
   level++;
   changeAppearanceTime();
   updateLevelDisplay();
+}
 
-  // solved my problem of the classes are working if they have a lvl condition
+  /* bugging ?! 
   if (level >= 2) {
     console.log(level)
     const newPikadont = new Pikadont();
@@ -170,4 +179,4 @@ if  (level === 5){
     const newAsh = new Ash();
   }
 }
-
+*/
