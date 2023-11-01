@@ -1,6 +1,6 @@
 let points = 0;
 
-let appearanceTimePikachu = 500;
+let appearanceTimePikachu = 800;
 let appearanceTimeGengar = 1000;
 let appearanceTimeGrimer = 1000;
 let appearanceTimePikadont = 1000;

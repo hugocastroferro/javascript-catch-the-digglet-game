@@ -1,27 +1,31 @@
-Theme ?
-Catch a Digglet ?
-Smack a Luigi ?
-
 
 Click on the object :
 
 1. MVP
 Basic functionallity :
-- [ ] USER can click on objects
-- [ ] Create a space for the objects to appear
-- [ ] Click on wrong object = Game over
+- [x] USER can click on objects
+- [x] Create a space for the objects to appear
+- [x] Click on wrong object, points 0 = Game over
 
 2. Milestones
-- [ ] Create a board (ex of the survival game)
-- [ ] Allow USER to click
-- [ ] Create 2 objects to start, 1 GOOD, 1 BAD
-- [ ] Display objects has basic rectangles for start and on same spot
-- [ ] Check player click on BAD obj, yes = Game Over, no = continue playing
+- [x] Create a board and grid
+- [x] Allow USER to click
+- [x] Create 2 objects to start, 1 GOOD, 1 BAD
+- [x] Display objects has basic imgs for start and on same spot
+- [x] Check player click on BAD obj, yes = Game Over, no = continue playing
 ---- BASIC GAME DONE AND FUNCTIONAL ----
-- [ ] Make obstacles appear randomly between places 
-- [ ] Create a point bar
-- [ ] If player clicks on GOOD object gains points
-- [ ] Implement lives
-- [ ] Implement BOOST, 3 object that gives +1 Live and +Points.
-- [ ] Change objects img
-- [ ] update VUI
+- [x] Make bad obstacles appear randomly between places 
+- [x] Create a point bar
+- [x] If player clicks on GOOD object gains points
+- [x] Change objects img
+- [x] Implement more objects do dificult the user's path
+- [x] update VUI
+
+3. Improvements, maybe ?
+[x] Timer 
+[x] Levels
+[x] Speed going up
+[x] Game start page
+[x] Game over page
+[x] Make it pretty
+[x] Put a soundtrack
