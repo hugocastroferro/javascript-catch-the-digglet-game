@@ -44,12 +44,20 @@ body {
     -1px 4px 0 #39569e, 1px 1px 0 #39569e;
   font-size: 36px;
   text-transform: uppercase;
+  text-align: left;
 }
 
 .headerP {
   color: white;
   font-size: 12px;
   width: 80%;
+  text-align: left;
+}
+.headerP2, ul {
+  color: white;
+  font-size: 10px;
+  width: 80%;
+  text-align: left;
 }
 
 .row {
