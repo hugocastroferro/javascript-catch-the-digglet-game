@@ -2,7 +2,7 @@ class Bulb {
     constructor() {
       let currGrid;
       let bulb = document.createElement("img");
-      bulb.src = "./img/Bulba.png";
+      bulb.src = "./img/bulba.png";
       bulb.isClickable = true; // solved the points problem
   
       let num = new randomSquare().square();

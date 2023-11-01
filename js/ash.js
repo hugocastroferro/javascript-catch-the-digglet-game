@@ -2,7 +2,7 @@ class Ash {
     constructor() {
       let currGrid;
       let ash = document.createElement("img");
-      ash.src = "img/ash.png";
+      ash.src = "./img/ash.png";
       ash.isClickable = true; // solved the points problem
   
       let num = new randomSquare().square();
