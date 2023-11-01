@@ -9,11 +9,26 @@ let appearanceTimeSnorlax = 1000;
 let appearanceTimeBulb = 1000;
 let appearanceTimeAsh = 2500;
 let appearanceTimeJames = 1100;
+let appearanceTimeSquad = 1000;
 
 let timer = 10;
 let timerInterval = setInterval(decreaseTimer, 1000);
 let level = 1;
 let levelUpCondition = false;
+
+
+function highesScoreStart(){
+  //starts the high score from the browser or 0 
+  const highestScore = localStorage.getItem("highestScore") || 0;   
+
+  // Display the highest score on the page
+  const highestScoreDisplay = document.getElementById("highest-score-display");
+  if (highestScoreDisplay) {
+    highestScoreDisplay.textContent = `Highest Score: ${highestScore}`;
+  }
+}
+
+highesScoreStart();
 
 function increasePoints(amount) {
   points += amount; // Increase points after clicking
@@ -37,6 +52,11 @@ function updatePointsDisplay() {
   }
   if (points === 0) {
     game0ver();
+  }
+
+  const highestScore = localStorage.getItem("highestScore")
+  if(points > highestScore){
+    localStorage.setItem("highestScore", points)
   }
 }
 
@@ -98,6 +118,10 @@ function CreateGameGrid() {
   setInterval(() => {
     const newAsh = new Ash();
   }, appearanceTimeAsh);
+
+  setInterval(() => {
+    const newSquad = new Squad();
+  }, appearanceTimeSquad);
 }
 
 CreateGameGrid();
@@ -160,6 +184,10 @@ function changeAppearanceTime() {
 
   if (appearanceTimeJames > 300) {
     appearanceTimeJames -= 300;
+  }
+
+  if (appearanceTimeSquad > 300) {
+    appearanceTimeSquad -= 300;
   }
 }
 
