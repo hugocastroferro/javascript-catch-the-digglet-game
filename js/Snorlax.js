@@ -2,7 +2,7 @@ class Snorlax {
     constructor() {
       let currGrid;
       let snorlax = document.createElement("img");
-      snorlax.src = "img/snorlax.png";
+      snorlax.src = "./img/snorlax.png";
       snorlax.isClickable = true; // solved the points problem
   
       let num = new randomSquare().square();

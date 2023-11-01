@@ -2,7 +2,7 @@ class Gengar {
     constructor() {
       let currGrid;
       let gengar = document.createElement("img");
-      gengar.src = "img/gengar.png";
+      gengar.src = "./img/gengar.png";
       gengar.isClickable = true; // solved the points problem
   
       let num = new randomSquare().square();

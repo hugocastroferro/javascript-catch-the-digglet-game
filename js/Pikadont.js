@@ -2,7 +2,7 @@ class Pikadont {
     constructor() {
       let currGrid;
       let pikadont = document.createElement("img");
-      pikadont.src = "img/Pikadont.png";
+      pikadont.src = "./img/Pikadont.png";
       pikadont.isClickable = true; // solved the points problem
   
       let num = new randomSquare().square();

@@ -2,7 +2,7 @@ class Pikachu {
     constructor() {
       let currGrid;
       let pikachu = document.createElement("img");
-      pikachu.src = "img/Pikachu.png";
+      pikachu.src = "./img/Pikachu.png";
       pikachu.isClickable = true; // solved the points problem
   
       let num = new randomSquare().square();

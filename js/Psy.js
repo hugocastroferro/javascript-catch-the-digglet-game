@@ -2,7 +2,7 @@ class Psy {
     constructor() {
       let currGrid;
       let psy = document.createElement("img");
-      psy.src = "img/psy.png";
+      psy.src = "./img/psy.png";
       psy.isClickable = true; // solved the points problem
   
       let num = new randomSquare().square();

@@ -2,7 +2,7 @@ class Grimer {
     constructor() {
       let currGrid;
       let grimer = document.createElement("img");
-      grimer.src = "img/grimer.png";
+      grimer.src = "./img/grimer.png";
       grimer.isClickable = true; // solved the points problem
   
       let num = new randomSquare().square();

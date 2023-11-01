@@ -2,7 +2,7 @@ class James {
     constructor() {
       let currGrid;
       let james = document.createElement("img");
-      james.src = "img/james.png";
+      james.src = "./img/james.png";
       james.isClickable = true; // solved the points problem
   
       let num = new randomSquare().square();
