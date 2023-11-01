@@ -28,4 +28,5 @@ Basic functionallity :
 [x] Game start page
 [x] Game over page
 [x] Make it pretty
+[x] Highscore on game (registering the score on own user browser !)
 [x] Put a soundtrack

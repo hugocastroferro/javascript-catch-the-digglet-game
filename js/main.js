@@ -16,6 +16,11 @@ let timerInterval = setInterval(decreaseTimer, 1000);
 let level = 1;
 let levelUpCondition = false;
 
+const audio = new Audio("./soundtrack/OpeningThem.mp3");
+audio.volume = 0.2;
+audio.play();
+audio.loop = true
+
 
 function highesScoreStart(){
   //starts the high score from the browser or 0 
@@ -29,6 +34,7 @@ function highesScoreStart(){
 }
 
 highesScoreStart();
+
 
 function increasePoints(amount) {
   points += amount; // Increase points after clicking
