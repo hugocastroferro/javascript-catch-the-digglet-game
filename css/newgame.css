@@ -1,71 +1,76 @@
 body {
-    box-sizing: border-box;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-  }
-  
-  .pokemon-ball {
-    border: 3px solid white  ;
-    border-radius: 50%;
-  }
-  
-  .navi{ 
-    background: #029A81;
-    padding: 20px 40px;
-    font-size: 28px;
-    text-align: right;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-family: 'Oswald', sans-serif;
-  }
-  
-  #game { 
-    background: #32AC97;
-    width: 100%;
-    padding: 40px 0;
-  }
-  
-  
-  #game div { 
-    display: inline-block;
-    vertical-align: top;
-    width: 48%;
-  }
-  
-  
-  .headerOne { 
-    font-family: 'Oswald', sans-serif;
-    font-size: 36px;
-    text-transform: uppercase;
-    color: #9E1908;
-  }
-  
-  .headerP {
-    color: white;
-    font-size: 12px;
-    width: 80%;
-  }
-  
-  .row { 
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  .header2 {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    font-size: 36px;
-    color: #013763;
-    margin: 0 0 5px 0;
-  }
-  
-  .playButton {
-    margin-left: 10px;
-    padding: 10px 20px;
-    background: #013763;
-    text-transform: uppercase;
-  }
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+}
+
+.pokemon-ball {
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.navi {
+  background: #411116;
+  padding: 20px 40px;
+  font-size: 28px;
+  text-align: right;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+}
+
+#game {
+  background: #7d333c;
+  background-image: url(../img/james.png);
+  background-position: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 40px 0;
+}
+
+#game div {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+}
+
+.headerOne {
+  font-family: "Joti One", cursive;
+  color: #ffcb04;
+  text-shadow: 3px 3px 0 #39569e, -1px -1px 0 #39569e, 1px -1px 0 #39569e,
+    -1px 4px 0 #39569e, 1px 1px 0 #39569e;
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.headerP {
+  color: white;
+  font-size: 12px;
+  width: 80%;
+}
+
+.row {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header2 {
+  font-family: "Joti One", cursive;
+  color: #ffcb04;
+  text-shadow: 3px 3px 0 #39569e, -1px -1px 0 #39569e, 1px -1px 0 #39569e,
+    -1px 4px 0 #39569e, 1px 1px 0 #39569e;
+  text-transform: uppercase;
+  font-size: 36px;
+  margin: 0 0 5px 0;
+}
+
+.playButton {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background: #013763;
+  text-transform: uppercase;
+}

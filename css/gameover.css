@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background: black;
+}
+
+h1 {
+  font-family: "Joti One", cursive;
+  text-shadow: 3px 3px 0 #39569e, -1px -1px 0 #39569e, 1px -1px 0 #39569e,
+    -1px 4px 0 #39569e, 1px 1px 0 #39569e;
+  color: yellow;
+  font-size: 8em;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-family: "Joti One", cursive;
+  text-shadow: 3px 3px 0 #39569e, -1px -1px 0 #39569e, 1px -1px 0 #39569e,
+    -1px 4px 0 #39569e, 1px 1px 0 #39569e;
+  color: yellow;
+  font-size: 1em;
+  text-align: center;
+  
+}
+
+img {
+  width: 40%;
+  height: 40%;
+  display: block;
+  margin: 0 auto;
+}
+
+.playButton {
+  height: 100vh;
+  background-color: black;
+}

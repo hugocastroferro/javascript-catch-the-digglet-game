@@ -1,38 +1,39 @@
-body{
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-    background: url(../img/browserimg2.jpg);
-    background-size: cover;
+body {
+  font-family: "Joti One", cursive;
+  color: #ffcb04;
+  text-shadow: 3px 3px 0 #39569e, -1px -1px 0 #39569e, 1px -1px 0 #39569e,
+    -1px 4px 0 #39569e, 1px 1px 0 #39569e;
+  text-align: center;
+  background: url(../img/browserimg2.jpg);
+  background-size: cover;
 }
 
 #board {
-    width: 615px;
-    height: 650px;
+  width: 615px;
+  height: 650px;
 
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
 
-    background-color: grey;
-    background: url(../img/boardimg.jpg); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-color: grey;
+  background: url(../img/boardimg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
-    border: 4px solid black;
-    border-radius: 5px;
+  border: 4px solid black;
+  border-radius: 5px;
 }
 
-#board div{
-    width: 123px;
-    height: 130px;
-    background-image: url("../img/pokeball.png");
-    background-size: cover;
+#board div {
+  width: 123px;
+  height: 130px;
+  background-image: url("../img/pokeball.png");
+  background-size: cover;
 }
-
 
 #board div img {
-    width: 100%;
-    height: 100% ;
+  width: 100%;
+  height: 100%;
 }
-
