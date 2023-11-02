@@ -2,17 +2,17 @@ class Game {
   constructor() {
     this.points = 0;
     this.appearanceTimes = {
-      // Defining appearance times for other characters
-      Pikachu: 1000,
-      Gengar: 1000,
-      Grimer: 1000,
-      Ash: 1000,
-      Bulb: 1000,
+      // Defining appearance times for characters
+      Pikachu: 2000,
+      Gengar: 1700,
+      Grimer: 1500,
+      Ash: 1800,
+      Bulb: 1500,
       James: 1000,
-      Pikadont: 1000,
-      Psy: 1000,
-      Snorlax: 1000,
-      Squad: 1000,
+      Pikadont: 1600,
+      Psy: 1600,
+      Snorlax: 1700,
+      Squad: 1500,
     };
 
     this.timer = 10;
@@ -20,7 +20,7 @@ class Game {
     this.level = 1;
     this.levelUpCondition = false;
     this.audio = new Audio("./soundtrack/OpeningThem.mp3");
-    this.audio.volume = 0;
+    this.audio.volume = 0.1;
     this.audio.play();
     this.audio.loop = true;
 
@@ -71,8 +71,6 @@ class Game {
   game0ver() {
     location.href = "./gameover.html";
   }
-
-  
 
   createGameGrid() {
     for (let i = 0; i < 25; i++) {
@@ -150,13 +148,22 @@ class Game {
   };
 
   changeAppearanceTime() {
-    // Update appearance times for each character when im lvling up
+    // Update appearance times for each character when lvling up
   }
 
   levelUp() {
     this.level++;
     this.changeAppearanceTime();
     this.updateLevelDisplay();
+    if (this.level <= 5) {
+      // first 5 levels, make the game faster
+      this.appearanceTimes.Pikachu -= 100;
+      this.timerInterval = setInterval(() => this.decreaseTimer(), 400); // Decreasing the timer interval
+    } else {
+      // After level 5, keep it at a regular pace
+      this.appearanceTimes.Pikachu = 1500; // Reset Pikachu appearance time
+      this.timerInterval = setInterval(() => this.decreaseTimer(), 500); // Reset timer interval
+    }
   }
 }
 
