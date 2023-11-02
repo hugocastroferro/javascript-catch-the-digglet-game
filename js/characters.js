@@ -24,17 +24,7 @@ class Characters {
           }
         }, 1500);
   
-       /* character.addEventListener("click", () => {
-          if (character.isClickable) {
-            increasePoints(this.points);
-          }
-  
-          if (imgElement) {
-            imgElement.remove();
-          }
-  
-          character.isClickable = false;
-        }); */
+      this.attachClickEvent();
       }
     }
 
@@ -68,7 +58,6 @@ class Pikachu extends Characters {
     constructor() {
       super("./img/gengar.png", 30);
       this.createInstance();
-      this.attachClickEvent();
     }
 
     attachClickEvent() {
@@ -87,7 +76,7 @@ class Pikachu extends Characters {
     constructor() {
       super("./img/grimer.png", 10);
       this.createInstance();
-      this.attachClickEvent();
+      
     }
 
     attachClickEvent() {
@@ -106,7 +95,6 @@ class Pikachu extends Characters {
     constructor() {
       super("./img/ash.png", 100);
       this.createInstance();
-      this.attachClickEvent();
     }
 
     attachClickEvent() {
@@ -125,7 +113,7 @@ class Pikachu extends Characters {
     constructor() {
       super("./img/bulba.png", 20);
       this.createInstance();
-      this.attachClickEvent();
+   
     }
 
     attachClickEvent() {
@@ -144,7 +132,7 @@ class Pikachu extends Characters {
     constructor() {
       super("./img/james.png", 100);
       this.createInstance();
-      this.attachClickEvent();
+     
     }
 
     attachClickEvent() {
@@ -163,7 +151,7 @@ class Pikachu extends Characters {
     constructor() {
       super("./img/Pikadont.png", 50);
       this.createInstance();
-      this.attachClickEvent();
+    
     }
 
     attachClickEvent() {
@@ -182,7 +170,7 @@ class Pikachu extends Characters {
     constructor() {
       super("./img/Psy.png", 10);
       this.createInstance();
-      this.attachClickEvent();
+     
     }
 
     attachClickEvent() {
@@ -201,7 +189,7 @@ class Pikachu extends Characters {
     constructor() {
       super("./img/snorlax.png", 30);
       this.createInstance();
-      this.attachClickEvent();
+      
     }
 
     attachClickEvent() {
@@ -220,7 +208,7 @@ class Pikachu extends Characters {
     constructor() {
       super("./img/squad.png", 20);
       this.createInstance();
-      this.attachClickEvent();
+      
     }
 
     attachClickEvent() {
