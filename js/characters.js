@@ -1,4 +1,4 @@
-class Characters {
+class Characters { 
   constructor(imageSrc, points) {
     this.imageSrc = imageSrc;
     this.characterElm = null;
@@ -37,7 +37,7 @@ class Pikachu extends Characters {
   constructor() {
     super("./img/pikachu.png", 10);
     this.createInstance();
-   
+  
   }
 
   attachClickEvent() {
