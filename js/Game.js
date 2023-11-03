@@ -142,7 +142,7 @@ class Game {
     if (this.timer <= 0) {
       this.levelUp();
       this.updateLevelDisplay();
-      this.timer = 10;
+      this.timer = 21;
       this.changeAppearanceTime();
     }
   };
@@ -155,13 +155,16 @@ class Game {
     this.level++;
     this.changeAppearanceTime();
     this.updateLevelDisplay();
+  
     if (this.level <= 5) {
-      // first 5 levels, make the game faster
-      this.appearanceTimes.Pikachu -= 100;
-      this.timerInterval = setInterval(() => this.decreaseTimer(), 400); // Decreasing the timer interval
+      // First 5 levels, make the game faster
+      this.appearanceTimes.Pikachu -= 200;
+      clearInterval(this.timerInterval); // Clear the existing timer interval
+      this.timerInterval = setInterval(() => this.decreaseTimer(), 400); // Decrease the timer interval
     } else {
       // After level 5, keep it at a regular pace
       this.appearanceTimes.Pikachu = 1500; // Reset Pikachu appearance time
+      clearInterval(this.timerInterval); // Clear the existing timer interval
       this.timerInterval = setInterval(() => this.decreaseTimer(), 500); // Reset timer interval
     }
   }
